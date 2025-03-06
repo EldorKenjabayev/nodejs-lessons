@@ -19,11 +19,26 @@
 // })
 
 
-const fs = require('fs');
+// const fs = require('fs');
 
-fs.unlink('./text-files/some.txt', ()=>{
-    fs.rmdir('./text-files', ()=>{
-        console.log('Delete succes');
+// fs.unlink('./text-files/some.txt', ()=>{
+//     fs.rmdir('./text-files', ()=>{
+//         console.log('Delete succes');
         
-    })
+//     })
+// })
+
+const http = require('http');
+
+let server = http.createServer((req, res)=>{
+    res.writeHead(200, {'Content-Type': 'text/plain; charset=utf-8'});
+    res.end('Hello Node js');
+})
+
+const PORT = 3001;
+const HOST = 'localhost';
+
+server.listen(PORT, HOST, ()=>{
+    console.log(`Server started http://${HOST}:${PORT}`);
+    
 })
